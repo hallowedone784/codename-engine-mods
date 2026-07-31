@@ -1,0 +1,18 @@
+{
+	"customValues": {},
+	"color": "#000000",
+	"opponentModeAllowed": true,
+	"icon": "bigbird",
+	"difficulties": [
+		"hard"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Playtime's End",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"variants": [
+		"inst retool"
+	],
+	"bpm": 155
+}

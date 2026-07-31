@@ -1,0 +1,114 @@
+<!-- 
+    unfinished, still needs to make sure everyone has their socials linked and give everyone colors
+    also needs to make sure everyone's satisfied with their pfps, descriptions, etc
+    maybe add submenus?
+
+    this will be entirely overhauled once we add the custom UI for the credits and start linking individual work to each
+    person in credits
+-->
+<menu
+    name="Mod Credits" 
+    desc ="Modify mod credits here"
+    >
+
+    <credit
+        name="MALMALLIE"
+        desc="Director of the mod, the one who came up with the original idea. Also a goated artist."
+        icon="malmallie"
+        size="100"
+        url="https://open.spotify.com/user/31ui6b6npz3oytzq4ofdcggacrkm"
+    />
+    <credit
+        name="geeble3eebl3"
+        desc="Co-director of the mod, goated artist and writer."
+        icon="geeble"
+        size="100"
+    />
+    <credit
+        name="arino.xd"
+        desc="Co-director of the mod, fantastic composer who made Willow!"
+        icon="arino"
+        size="100"
+        url="https://www.youtube.com/@weddelljamie2"
+    />
+    <credit
+        name="n0ns3nsica1"
+        desc="Writer for the mod, helped with the events for Phantom."
+        icon="nonsense"
+        size="100"
+    />
+    <credit
+        name="liquid_plastic"
+        desc="Composer for the mod."
+        icon="liquidplastic"
+        size="100"
+    />
+    <credit
+        name="00mpyy"
+        desc="Composer for the mod. Have you listened to Deadly Reggae?"
+        icon="oompy"
+        size="100"
+        url="https://www.youtube.com/channel/UCFawurKKxgPIpWPIyW0Xg1w"
+    />
+    <credit
+        name="trofayiscool"
+        desc="hey guys its trofay today we are and thank you."
+        icon="trofay"
+        size="100"
+    />
+    <credit
+        name="orgablorg"
+        desc="That's me! Main coder for the mod, very proud to be part of this time. UC Berkeley alumni!"
+        icon="orgablorg"
+        size="100"
+        url="https://www.youtube.com/@orgablorgYT"
+    />
+    <credit
+        name="ww3lker"
+        desc="Composer. Welkmixed."
+        icon="welker"
+        size="100"
+    />
+    <credit
+        name="saps_underscored"
+        desc="Background artist."
+        icon="saps"
+        size="100"
+    />
+    <credit
+        name="marsanss"
+        desc="Charter."
+        icon="marsan"
+        size="100"
+    />
+    <credit
+        name="vanidew"
+        desc="Animator."
+        icon="melanie"
+        size="100"
+    />
+    <credit
+        name="daniel_arroyo_g13"
+        desc="Chromatic maker."
+        icon="dag"
+        size="100"
+    />
+    <credit
+        name="abrix_708"
+        desc="Storyboard artist."
+        icon="abrix"
+        size="100"
+    />
+    <credit
+        name="gerngonger"
+        desc="Sprite artist."
+        icon="gerngonger"
+        size="100"
+    />
+    <credit
+        name="midfoal2.0"
+        desc="Everyone knows this guy."
+        icon="midfoal"
+        size="100"
+    />
+</menu>

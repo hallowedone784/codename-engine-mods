@@ -1,0 +1,16 @@
+{
+	"opponentModeAllowed": true,
+	"icon": "isabellaplaceholder",
+	"difficulties": [
+		"hard"
+	],
+	"color": "#000000",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Willow",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 180,
+	"instSuffix": "-scrapped v3.5",
+	"vocalsSuffix": "-scrapped v3.5"
+}

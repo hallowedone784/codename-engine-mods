@@ -1,0 +1,15 @@
+{
+	"opponentModeAllowed": true,
+	"icon": "phineas",
+	"difficulties": [
+		"hard",
+		"marsan"
+	],
+	"color": "#FF5A5A",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "today is gonna be a great day",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 180
+}

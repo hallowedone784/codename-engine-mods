@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character sprite="phineasp1" flipX="true" isPlayer="true" icon="phineas" color="#DC815A">
+	<anim name="idle" anim="idle instance 1"/>
+	<anim name="singDOWN" anim="down instance 1" x="-4" y="-10"/>
+	<anim name="singRIGHT" anim="right instance 1" x="-15" y="-4"/>
+	<anim name="singLEFT" anim="left instance 1" x="12" y="-3"/>
+	<anim name="singUP" anim="up instance 1" x="-21" y="8"/>
+</character>

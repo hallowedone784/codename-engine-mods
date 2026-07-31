@@ -1,0 +1,7 @@
+<!DOCTYPE codename-engine-stage>
+<stage startCamPosX="1000" startCamPosY="600" folder="stages/willow/" zoom="0.9" name="willow">
+	<sprite x="-600" scroll="0.8" sprite="backgroundwip" y="-200" name="bg"/>
+	<dad x="273" y="1600"/>
+	<boyfriend x="2100" y="1700"/>
+	<girlfriend x="1038" y="1249"/>
+</stage>

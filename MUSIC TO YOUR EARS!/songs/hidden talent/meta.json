@@ -1,0 +1,14 @@
+{
+	"opponentModeAllowed": true,
+	"icon": "face",
+	"difficulties": [
+		"teaser"
+	],
+	"color": "#FF8200",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Hidden Talent",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 75
+}

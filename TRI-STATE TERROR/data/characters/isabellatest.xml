@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="-700" y="-300" sprite="spritesheet" scale="0.55" icon="isabella" color="#F200FF">
+	<anim name="idle" anim="idl" loop="true"/>
+	<anim name="singUP" anim="singU"/>
+	<anim name="singLEFT" anim="singLEF"/>
+	<anim name="singDOWN" anim="singDOW"/>
+	<anim name="singRIGHT" anim="singRIGH"/>
+</character>

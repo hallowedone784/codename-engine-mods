@@ -1,0 +1,21 @@
+{
+	"customValues": {},
+	"color": "#000000",
+	"opponentModeAllowed": true,
+	"icon": "isabella",
+	"difficulties": [
+		"hard",
+		"marsan"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Willow",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"variants": [
+		"scrapped 3.5",
+		"scrapped v2",
+		"scrapped v3.5"
+	],
+	"bpm": 180
+}
