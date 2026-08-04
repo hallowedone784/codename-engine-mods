@@ -1,87 +1,105 @@
-// add lyrics into script (turn into module)
+// cinema bars variables
+var camBars:FlxCamera;
+var barGroup:FlxSpriteGroup;
+var topBar:FlxSprite;
+var bottomBar:FlxSprite;
 
-function marqueeLyrics(phrase:String, ?breakTime:Int, ?textSize:Int, ?font:String) // working title
-{
+// lyrics variables
+var lyricText:FlxText;
+var lyrics:Array<String> = [];
+var currentIndex:Int = 0;
+var stepInterval:Int = 1;
+var isLyricActive:Bool = false;
 
+var stepCounter:Int = 0;
+
+function stepHit(curStep:Int) {
+    if (!isLyricActive) return;
+
+    stepCounter++;
+
+    // Check if current step matches interval spacing
+    if (stepCounter >= stepInterval) {
+        if (currentIndex < lyrics.length) {
+            // Add next word
+            lyricText.text += lyrics[currentIndex];
+            currentIndex++;
+            stepCounter = 0;
+        } else {
+            isLyricActive = false;
+            // Add a transition out here, maybe, and a transition in at the top of this statement
+        }
+    }
 }
 
-function marqueeBars(distFromCenter:Int, numOfSteps:Int) // placeholder parameters, change later
+public function marqueeLyrics(phrase:String, ?textSize:Int, ?font:String, ?breakTime:Int) // working title
 {
-    // figure out how to insert camera below camHUD but above camGame
-    camBars:FlxCamera ??= new FlxCamera(); // not sure if this is how you initialize a camera, check refs later
-    barGroup:FlxSpriteGroup ??= new FlxSpriteGroup();
+    textSize ??= 50;
+    font ??= "adultswim.ttf";
+    breakTime ??= 1;
+
+    // Split string into words
+    var formattedPhrase:String = StringTools.replace(phrase, "-", " -"); // handles dashes in the phrase
+    lyrics = formattedPhrase.split(" "); 
+    
+    // add space at the beginning of every entry past the first one in words
+    for (i in 1...lyrics.length) {
+        if (!StringTools.startsWith(lyrics[i], "-")) {
+            lyrics[i] = " " + lyrics[i];
+        }
+    }
+    
+    if (lyricText == null) {
+        lyricText = new FlxText(0, FlxG.height - 80, FlxG.width, "", textSize);
+        lyricText.alignment = "center";
+        lyricText.cameras = [camBars ?? camHUD];
+        add(lyricText);
+    }
+    
+    lyricText?.font = Paths.font(font);
+    lyricText.size = textSize;
+    lyricText.text = lyrics[0] ?? "";
+
+    currentIndex = 1;
+    stepInterval = breakTime;
+    stepCounter = 0;
+    isLyricActive = (lyrics.length > 0);
+}
+
+public function marqueeBars(distFromCenter:Int, numOfBeats:Int) // placeholder parameters, change later
+{
+    camBars ??= new FlxCamera(0, 0, camHUD.width, camHUD.height);
+    camBars.bgColor = FlxColor.TRANSPARENT;
+    FlxG.cameras.insert(camBars, FlxG.cameras.list.indexOf(camHUD), false);
+
+    barGroup ??= new FlxSpriteGroup();
     barGroup.cameras = [camBars];
     add(barGroup);
 
     // Cancels the tweens of the last bar movement. That way, they don't overlap.
-    if (topBar != null) FlxTween.cancelTweensOf(topBar);
-    if (bottomBar != null) FlxTween.cancelTweensOf(topBar);
-    FlxTween.cancelTweensOf(barGroup);
+    topBar?.cancelTween();
+    bottomBar?.cancelTween();
 
-    topBar:FlxSprite ??= new FlxSprite(-150, -FlxG.height/2).makeSolid(FlxG.width*2, FlxG.height/2, FlxColor.BLACK);
-    topBar.scrollFactor.set(0, 0);
-    topBar.cameras = [camBars];
+    topBar ??= new FlxSprite(-150, -FlxG.height/2).makeSolid(FlxG.width*2, FlxG.height/2, FlxColor.BLACK);
+    bottomBar ??= new FlxSprite(-150, FlxG.height).makeSolid(FlxG.width*2, FlxG.height/2, FlxColor.BLACK);
+
     barGroup.add(topBar);
-
-    bottomBar:FlxSprite ??= new FlxSprite(-150, FlxG.height).makeSolid(FlxG.width*2, FlxG.height/2, FlxColor.BLACK);
-    bottomBar.scrollFactor.set(0,0);
-    bottomBar.cameras = [camBars];
     barGroup.add(bottomBar);
 
     // Distance calculation logic
     var topGoal:Int = -FlxG.height/2 + Std.parseInt(distFromCenter);
     var bottomGoal:Int = FlxG.height - Std.parseInt(distFromCenter);
+    var duration:Float = (Conductor.crochet / 1000) * numOfBeats;
     
     // Maybe add tweening case logic later if we decide to use that?
-    FlxTween.tween(topBar, {y: topGoal}, (Conductor.crochet/1000)*numOfSteps, {ease: FlxEase.circOut});
-    FlxTween.tween(bottomBar, {y: bottomGoal}, (Conductor.crochet/1000)*numOfSteps, {ease: FlxEase.circOut});
+    FlxTween.tween(topBar, {y: topGoal}, duration, {ease: FlxEase.circOut});
+    FlxTween.tween(bottomBar, {y: bottomGoal}, duration, {ease: FlxEase.circOut});
 }
 
 
-/* lyrics:
-['cause i'm feelin' like i'm runnin']
-[and i'm feelin' like i gotta get away]
-[get away]
-[get away] (these 2 get aways get bigger each time)
-[better know that i don't and i won't ever stop]
-['cause you know i gotta win everyday-day]
-[GO!] (secondary lyrics will be transparent or something)
-[see, they really really really wanna pop me]
-[BLOW!]
-[just know that you will never flop me]
-[and i know that i can be a little cocky]
-[OOH]
-[you ain't never gonna stop me]
----
-[every time i come, a nigga gotta set it]
-[then i gotta go, and then i gotta get it]
-[WOO!]
-[then i gotta blow, and then i gotta show that]
-[any little thing a nigga think that he be doin']
-['cause it doesn't matter, 'cause i'm gonna da-da-da-da]
-[then i'm gonna murder everything and anything]
-[a ba-da-boom, a ba-da-bing, i gotta do a lotta things]
-[that make it clearer to a couple niggas that i always win]
-[and then i gotta get it again]
-[and again]
-[and then again]
----
-[and i be doin' it to death]
-[and now i move a little foul, a nigga better call a ref]
-[and everybody know my style and niggas know that i'm the best]
-[when it come to doin' this and i be bangin' on my chest]
-[and i bang in the east and i'm bangin' in the west]
-[and i come to give you more and i will never give you less]
-[you will hear it in the street or you could read it in the press]
-[do you really wanna know what's next?] 
-[let's go!] (secondary)
-[see the way we on and then we all up in the race]
-[and you know we gotta go, don't try to keep up with the pace]
-[and we strugglin' and hustlin' and sendin' in and gettin']
-[and we always gotta do it, take it to another place]
-[gotta taste it and i gotta grab it]
-[and i gotta cut all through this traffic]
-[just to be at the top of the throne]
-[better know i gotta have it ]
-[HAVE IT!] 
+/*
+To-do:
+1. Add secondary lyric mechanic, where if a lyric is identified as secondary, it's grayer and more transparent!
+2. Probably polish this a bit so it looks better. I like it being centered, but it's hard to read, so maybe I can make it left-to-right while also being centered?
+3. Definitely add more lyric stuff like rich text capability and all that.
 */

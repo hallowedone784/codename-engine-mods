@@ -267,7 +267,7 @@ function measureHit(curMeasure:Int) {
 
 public function cameraFocus(focus:String, ?time:Float)
 {
-    if (time == null) time = (Conductor.crochet)*4.5;
+    if (time == null) time = (Conductor.crochet/1000)*4.5;
     switch (focus) {
         case "isabella":
             FlxTween.tween(backgroundDim, {alpha: 0.75}, time, {ease: FlxEase.circOut});
@@ -289,7 +289,7 @@ public function cameraFocus(focus:String, ?time:Float)
 }
 
 private function healthFade(fade:Float, ?time:Float, ?end:Bool) {
-    if (time == null) time = (Conductor.crochet)*3;
+    if (time == null) time = (Conductor.crochet/1000)*3;
     if (end == null) end = false;
     
     FlxTween.tween(healthBar, {alpha: fade}, time, {ease: FlxEase.cubeOut});
