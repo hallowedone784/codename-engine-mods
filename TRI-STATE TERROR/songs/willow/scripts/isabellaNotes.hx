@@ -1,5 +1,5 @@
 function postCreate() {
-    moveStrums(isabellaStrums, isabella, 285, 85);
+    moveStrums(isabellaStrums, isabella, 180, 110);
     remove(isabella);
     insert(98, isabella);
 }

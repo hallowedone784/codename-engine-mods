@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character>
+<character scale="0.8" flipX="true" icon="isabella" color="#F291EF">
+	<anim name="idle" anim="idle" loop="true"/>
+</character>

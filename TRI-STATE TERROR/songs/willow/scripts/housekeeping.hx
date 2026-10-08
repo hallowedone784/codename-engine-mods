@@ -2,6 +2,7 @@
 // strums and all that
 public var isabellaStrums = strumLines.members[0];
 public var isabella = isabellaStrums.characters[0];
+public var evilIsabella = isabellaStrums.characters[1];
 public var phineasStrums = strumLines.members[1];
 public var phineas = phineasStrums.characters[0];
 public var corruptedPhineas = phineasStrums.characters[1];
@@ -57,6 +58,11 @@ function postCreate() {
     healthBarBG.alpha = 0;
     iconP1.alpha = 0;
     iconP2.alpha = 0;
+    isabella.alpha = 1;
+
+    evilIsabella.setPosition(isabella.x - 700, isabella.y - 300);
+    evilIsabella.scale.set(isabella.scale.x, isabella.scale.y);
+    evilIsabella.alpha = 0;
 
     iconP3 = new HealthIcon("ferb", false);
     iconP3.cameras = [camHUD];
@@ -241,19 +247,22 @@ function measureHit(curMeasure:Int) {
                 FlxTween.tween(spr, {x: targetX}, 1, {ease: FlxEase.quadInOut});
             });
 
+            isabella.alpha = 0;
+            evilIsabella.alpha = 1;
+
         // fix timings below, they don't work with Conductor.crochet
         case 211:
             FlxTween.tween(corruptedPhineas, {alpha: 0.7}, 0.5, {ease: FlxEase.cubeOut});
-            FlxTween.tween(isabella, {alpha: 1}, 0.5, {ease: FlxEase.cubeOut});
+            FlxTween.tween(evilIsabella, {alpha: 1}, 0.5, {ease: FlxEase.cubeOut});
         case 215:
-            FlxTween.tween(isabella, {alpha: 0.7}, 0.5, {ease: FlxEase.cubeOut});
+            FlxTween.tween(evilIsabella, {alpha: 0.7}, 0.5, {ease: FlxEase.cubeOut});
             FlxTween.tween(corruptedPhineas, {alpha: 1}, 0.5, {ease: FlxEase.cubeOut});
         case 219:
             FlxTween.tween(corruptedPhineas, {alpha: 0.7}, 0.5, {ease: FlxEase.cubeOut});
-            FlxTween.tween(isabella, {alpha: 1}, 0.5, {ease: FlxEase.cubeOut});
+            FlxTween.tween(evilIsabella, {alpha: 1}, 0.5, {ease: FlxEase.cubeOut});
         case 223:
             corruptedPhineas.alpha = 1;
-            isabella.alpha = 1;
+            evilIsabella.alpha = 1;
     // add in a section eventually so that the health icons slide down a little bit after the cinematic bars
     }
     if (curMeasure >= 192 && curMeasure < 207) {

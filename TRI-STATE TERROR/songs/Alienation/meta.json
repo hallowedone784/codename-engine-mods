@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#FF8200",
+	"opponentModeAllowed": true,
+	"icon": "face",
+	"difficulties": [
+		"teaser"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Alienation",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 190
+}
