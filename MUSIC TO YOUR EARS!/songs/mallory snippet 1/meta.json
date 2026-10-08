@@ -1,15 +1,15 @@
 {
 	"customValues": {},
-	"color": "#FF8200",
+	"color": "#000000",
 	"opponentModeAllowed": true,
-	"icon": "face",
+	"icon": "bf",
 	"difficulties": [
-		"teaser"
+		"motif"
 	],
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
-	"displayName": "Hidden Talent",
+	"displayName": "mallory snippet 1",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 144
+	"bpm": 210
 }
